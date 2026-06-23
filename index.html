@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Erika e Zé ❤️</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#ffe6ee,#fff7fa);
+        font-family: 'Segoe UI', sans-serif;
+        overflow:hidden;
+    }
+
+    .heart{
+        position:fixed;
+        color:rgba(255,105,180,0.25);
+        animation:flutuar linear infinite;
+        user-select:none;
+    }
+
+    @keyframes flutuar{
+        from{
+            transform:translateY(100vh);
+        }
+        to{
+            transform:translateY(-120px);
+        }
+    }
+
+    .container{
+        max-width:800px;
+        margin:20px;
+        padding:50px;
+        text-align:center;
+        background:rgba(255,255,255,0.92);
+        border-radius:30px;
+        box-shadow:0 15px 50px rgba(0,0,0,0.12);
+        backdrop-filter: blur(8px);
+    }
+
+    h1{
+        color:#e91e63;
+        font-size:3rem;
+        margin-bottom:15px;
+    }
+
+    .subtitle{
+        color:#666;
+        font-size:1.1rem;
+        margin-bottom:35px;
+    }
+
+    .message{
+        font-size:1.2rem;
+        line-height:1.8;
+        color:#444;
+        margin-bottom:35px;
+    }
+
+    #contador{
+        font-size:2rem;
+        color:#d81b60;
+        font-weight:bold;
+        margin:30px 0;
+        line-height:1.7;
+    }
+
+    .date{
+        color:#777;
+        font-size:1rem;
+        margin-top:25px;
+    }
+
+    .footer{
+        margin-top:40px;
+        color:#999;
+        font-style:italic;
+    }
+
+    @media(max-width:700px){
+
+        .container{
+            padding:30px;
+        }
+
+        h1{
+            font-size:2.2rem;
+        }
+
+        #contador{
+            font-size:1.4rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>❤️ Erika & Zé ❤️</h1>
+
+    <div class="subtitle">
+        Um pequeno cantinho da internet só para nós.
+    </div>
+
+    <div class="message">
+        Desde aquele beijo, o tempo continua passando...<br>
+        Mas meu carinho por você segue acumulando junto com cada segundo. ✨
+    </div>
+
+    <div id="contador"></div>
+
+    <div class="date">
+        Desde 03/06/2026 às 17:45 ❤️
+    </div>
+
+    <div class="footer">
+        "Algumas histórias começam com uma conversa.<br>
+        A nossa ganhou um contador."
+    </div>
+
+</div>
+
+<script>
+
+const inicio = new Date(2026, 5, 3, 17, 45, 0);
+
+function atualizarContador(){
+
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const segundos = Math.floor(diff / 1000) % 60;
+    const minutos = Math.floor(diff / (1000 * 60)) % 60;
+    const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    document.getElementById("contador").innerHTML = `
+        ${dias} dias<br>
+        ${horas} horas • ${minutos} minutos • ${segundos} segundos
+    `;
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+
+// Corações flutuando
+
+for(let i=0;i<25;i++){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.fontSize = (15 + Math.random()*25)+"px";
+    heart.style.animationDuration = (8 + Math.random()*12)+"s";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
