@@ -13,6 +13,41 @@
         box-sizing:border-box;
     }
 
+#login{
+    text-align:center;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+#senha{
+    padding:12px;
+    width:250px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#e91e63;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#erro{
+    color:#e91e63;
+    margin-top:15px;
+}
+   
     body{
     min-height:100vh;
     display:flex;
@@ -126,6 +161,27 @@
 
 <body>
 
+<div id="login">
+
+    <h1>🔒 Área Secreta</h1>
+
+    <p>Digite o código de acesso:</p>
+
+    <input
+        type="password"
+        id="senha"
+        placeholder="Código de acesso">
+
+    <br><br>
+
+    <button onclick="verificarSenha()">
+        Entrar ❤️
+    </button>
+
+    <p id="erro"></p>
+
+</div>
+<div id="conteudo" style="display:none;">
 <div class="container">
 
     <h1>❤️ Erika & Zé ❤️</h1>
@@ -150,7 +206,7 @@
     <img src="foto3.jpg" alt="Erika e Zé">
 
 </div>
-   
+</div>  
     <div class="date">
         Desde 03/06/2026 às 17:45 ❤️
     </div>
@@ -206,3 +262,24 @@ for(let i=0;i<25;i++){
 
 </body>
 </html>
+
+
+function verificarSenha(){
+
+    const senha =
+        document.getElementById("senha").value;
+
+    if(senha === "ursoformiga"){
+
+        document.getElementById("login")
+            .style.display = "none";
+
+        document.getElementById("conteudo")
+            .style.display = "block";
+
+    }else{
+
+        document.getElementById("erro")
+            .innerHTML = "❤️ Código incorreto ❤️";
+    }
+}
