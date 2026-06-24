@@ -12,7 +12,22 @@
         padding:0;
         box-sizing:border-box;
     }
+.layout{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
 
+.sidebar{
+    width:260px;
+    flex-shrink:0;
+}
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
 .timeline-title{
     margin-top:50px;
     color:#e91e63;
@@ -28,12 +43,15 @@
 .evento{
     background:white;
     border:none;
-    padding:20px;
-    border-radius:15px;
+    padding:10px 15px;
+    border-radius:12px;
     cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
     transition:.3s;
-    font-size:16px;
+
+    text-align:left;
+    font-size:14px;
+    width:100%;
 }
 
 .evento:hover{
@@ -225,7 +243,7 @@ button:hover{
 </div>
 <div id="conteudo" style="display:none;">
 <div class="container">
-
+    <div class="layout">
     <h1>❤️ Erika & Zé ❤️</h1>
 
     <div class="subtitle">
@@ -249,7 +267,9 @@ button:hover{
 
 </div>
 </div>  
+</div>
 
+<div class="sidebar">
 <h2 class="timeline-title">📖 Nossa História</h2>
 
 <div class="timeline">
@@ -262,8 +282,9 @@ button:hover{
             'foto4.jpg'
         )">
 
-        <span>07/06/2026</span><br>
-        🍽️ Primeiro almoço
+        🍽️ Primeiro almoço juntos
+        <br>
+        <small>07/06/2026</small>
 
     </button>
 
@@ -272,7 +293,9 @@ button:hover{
 <div id="detalhesEvento" class="detalhes-evento">
 
     <h3>Selecione uma memória ❤️</h3>
+</div>
 
+</div>
 </div>
    
     <div class="date">
