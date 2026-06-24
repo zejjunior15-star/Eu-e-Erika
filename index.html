@@ -13,6 +13,48 @@
         box-sizing:border-box;
     }
 
+.timeline-title{
+    margin-top:50px;
+    color:#e91e63;
+}
+
+.timeline{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.evento{
+    background:white;
+    border:none;
+    padding:20px;
+    border-radius:15px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+    font-size:16px;
+}
+
+.evento:hover{
+    transform:scale(1.02);
+}
+
+.detalhes-evento{
+    margin-top:25px;
+    padding:25px;
+    background:#fff7fa;
+    border-radius:20px;
+}
+
+.detalhes-evento img{
+    margin-top:20px;
+    width:100%;
+    max-width:350px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+   
 #login{
     text-align:center;
     background:white;
@@ -207,6 +249,32 @@ button:hover{
 
 </div>
 </div>  
+
+<h2 class="timeline-title">📖 Nossa História</h2>
+
+<div class="timeline">
+
+    <button class="evento"
+        onclick="mostrarEvento(
+            '07/06/2026',
+            '🍽️ Primeiro almoço',
+            'No dia 07/06/2026, Zé e Erika foram almoçar no Picanha na Pedra do Bob.',
+            'foto4.jpg'
+        )">
+
+        <span>07/06/2026</span><br>
+        🍽️ Primeiro almoço
+
+    </button>
+
+</div>
+
+<div id="detalhesEvento" class="detalhes-evento">
+
+    <h3>Selecione uma memória ❤️</h3>
+
+</div>
+   
     <div class="date">
         Desde 03/06/2026 às 17:45 ❤️
     </div>
@@ -275,6 +343,25 @@ function verificarSenha(){
         document.getElementById("erro")
             .innerHTML = "❤️ Código incorreto ❤️";
     }
+}
+
+   function mostrarEvento(data, titulo, texto, foto){
+
+    document.getElementById("detalhesEvento").innerHTML = `
+    
+        <h2>${titulo}</h2>
+
+        <p style="margin-top:10px;">
+            <strong>${data}</strong>
+        </p>
+
+        <p style="margin-top:20px;">
+            ${texto}
+        </p>
+
+        <img src="${foto}">
+
+    `;
 }
 </script>
 
