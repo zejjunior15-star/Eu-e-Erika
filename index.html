@@ -400,10 +400,9 @@ function verificarSenha(){
     }
 }
 
-   function mostrarEvento(data, titulo, texto, foto){
+   function mostrarEvento(data, titulo, texto, ...fotos){
 
-    document.getElementById("detalhesEvento").innerHTML = `
-    
+    let html = `
         <h2>${titulo}</h2>
 
         <p style="margin-top:10px;">
@@ -413,10 +412,13 @@ function verificarSenha(){
         <p style="margin-top:20px;">
             ${texto}
         </p>
-
-        <img src="${foto}">
-
     `;
+
+    fotos.forEach(foto => {
+        html += `<img src="${foto}" style="margin-top:20px;">`;
+    });
+
+    document.getElementById("detalhesEvento").innerHTML = html;
 }
 </script>
 
